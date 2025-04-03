@@ -1,15 +1,26 @@
-import { useState } from 'react'
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route
+} from "react-router-dom"
+import ShoutoutList from "./ShoutoutList"
+import Login from "./Login"
+import ProtectedRoute from "./ProtectedRoute"
 
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <h1>Hello Book Loop</h1>
-    </>
-  )
-}
-
+const App = () => (
+	<Router>
+		<Routes>
+			<Route
+				path="/"
+				element={<Login />}
+			/>
+			<Route element={<ProtectedRoute />}>
+				<Route
+					path="/shoutouts"
+					element={<ShoutoutList />}
+				/>
+			</Route>
+		</Routes>
+	</Router>
+)
 export default App
