@@ -1,4 +1,4 @@
-import Shoutout from "../models/Shoutout"
+import Shoutout from "../models/User"
 import HTTPHandler from "../interfaces/HTTPHandler"
 
 // CREATE
