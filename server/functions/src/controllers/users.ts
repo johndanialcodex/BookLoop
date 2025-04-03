@@ -18,7 +18,7 @@ export const postUser: HTTPHandler = async (
 
 // READ
 
-export const getusers: HTTPHandler = async (
+export const getUsers: HTTPHandler = async (
 	req,
 	res
 ) => {
@@ -32,7 +32,7 @@ export const getusers: HTTPHandler = async (
 
 // READ ONE
 
-export const getuser: HTTPHandler = async (
+export const getUser: HTTPHandler = async (
 	req,
 	res
 ) => {
@@ -42,13 +42,13 @@ export const getuser: HTTPHandler = async (
 		)
 		res.status(200).send(user)
 	} catch (e: any) {
-		res.status(404).send("Shouout not found")
+		res.status(404).send("User not found")
 	}
 }
 
 // UPDATE
 
-export const putuser: HTTPHandler = async (
+export const putUser: HTTPHandler = async (
 	req,
 	res
 ) => {
@@ -62,13 +62,13 @@ export const putuser: HTTPHandler = async (
 		await user.save()
 		res.status(200).send(user)
 	} catch (e: any) {
-		res.status(404).send("Shouout not found")
+		res.status(404).send("User not found")
 	}
 }
 
 // DESTROY
 
-export const deleteuser: HTTPHandler = async (
+export const deleteUser: HTTPHandler = async (
 	req,
 	res
 ) => {
@@ -76,6 +76,6 @@ export const deleteuser: HTTPHandler = async (
 		await User.findByIdAndDelete(req.params.id)
 		res.status(204).send()
 	} catch (e: any) {
-		res.status(404).send("Shouout not found")
+		res.status(404).send("User not found")
 	}
 }
