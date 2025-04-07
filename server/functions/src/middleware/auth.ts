@@ -3,7 +3,7 @@ import {
 	Response,
 	NextFunction
 } from "express"
-import { getAuth } from "firebase-admin/auth"
+//import { getAuth } from "firebase-admin/auth"
 
 const checkAuth = async (
 	req: Request,
