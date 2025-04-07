@@ -3,10 +3,11 @@
 const Header = () => {
     return (
         <header>
+            <h1>Book Loop</h1>
             <nav>
                 <ul>
                     <li>
-                        <div>Link to Profile</div>
+                        <div>Link to User Profile</div>
                     </li>
                 </ul>
             </nav>
