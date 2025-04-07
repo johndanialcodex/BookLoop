@@ -1,26 +1,8 @@
-import {
-	BrowserRouter as Router,
-	Routes,
-	Route
-} from "react-router-dom"
-import ShoutoutList from "./ShoutoutList"
-import Login from "./Login"
-import ProtectedRoute from "./ProtectedRoute"
+import Header from "./components/Header"
 
 const App = () => (
-	<Router>
-		<Routes>
-			<Route
-				path="/"
-				element={<Login />}
-			/>
-			<Route element={<ProtectedRoute />}>
-				<Route
-					path="/shoutouts"
-					element={<ShoutoutList />}
-				/>
-			</Route>
-		</Routes>
-	</Router>
+	<>
+	<Header />
+	</>
 )
 export default App
