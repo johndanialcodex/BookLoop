@@ -1,59 +1,54 @@
 import { useState, FormEvent } from "react"
 import { useNavigate } from "react-router-dom"
 import {
-	createUserWithEmailAndPassword,
-	signInWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
 } from "firebase/auth"
 import { auth } from "../firebase"
 
 const Login = () => {
-	const [email, setEmail] = useState("")
-	const [password, setPassword] = useState("")
-	const navigate = useNavigate()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const navigate = useNavigate()
 
-	const handleSubmit = async (e: FormEvent) => {
-		e.preventDefault()
-		try {
-			await signInWithEmailAndPassword(
-				auth,
-				email,
-				password
-			)
-		} catch (err: any) {
-			await createUserWithEmailAndPassword(
-				auth,
-				email,
-				password
-			)
-		}
-		navigate("/profile")
-	}
-	return (
-<>
-        <div>
-            <h3>Add Link (for if user has no profile yet) to Create Profile!!</h3>
-        </div>
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault()
+    try {
+      await signInWithEmailAndPassword(auth, email, password)
+      navigate("/profile")
+    } catch (err: any) {
+		
+      await createUserWithEmailAndPassword(auth, email, password)
+      navigate("/profile")
+    }
+  }
 
-		<form onSubmit={handleSubmit}>
-			<label htmlFor="email">Email: </label>
-			<input
-				type="text"
-				name="email"
-				id="email"
-				value={email}
-				onChange={e => setEmail(e.target.value)}
-			/>
-			<label htmlFor="password">Password: </label>
-			<input
-				type="text"
-				name="password"
-				id="password"
-				value={password}
-				onChange={e => setPassword(e.target.value)}
-			/>
-			<button type="submit">Login</button>
-		</form>
-        </>
-	)
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="email">Email: </label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        />
+        <label htmlFor="password">Password: </label>
+        <input
+          type="text"
+          name="password"
+          id="password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+        />
+        <button type="submit">Login</button>
+      </form>
+      <div>
+        <a href="/create-profile">Don't have an account? Create one</a>
+      </div>
+    </>
+  )
 }
+
 export default Login

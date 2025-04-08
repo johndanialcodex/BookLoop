@@ -2,7 +2,7 @@ import { Schema, model } from "mongoose"
 
 const UserSchema = new Schema(
 	{
-		firebaseUid: { type: String, required: true },
+		firebaseUid: { type: String, required: true, unique: true },
 		username: { type: String, required: true },
 		city: { type: String, required: true }
 	},
@@ -16,7 +16,7 @@ export default User
 /*
 MODELS LOOK LIKE THIS IN POSTMAN FOR TESTING:
 {
-"firebaseUid": "String", // Link to Firebase Auth user
+"firebaseUid": "randomUID_12345678901234567890123456789012", // Link to Firebase Auth user
 "username": "String",
 "city": "String" // City name from Google Maps API
 }
