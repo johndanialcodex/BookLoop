@@ -4,7 +4,7 @@ import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword
 } from "firebase/auth"
-import { auth } from "./firebase"
+import { auth } from "../firebase"
 
 const Login = () => {
 	const [email, setEmail] = useState("")
@@ -26,9 +26,14 @@ const Login = () => {
 				password
 			)
 		}
-		navigate("/shoutouts")
+		navigate("/profile")
 	}
 	return (
+<>
+        <div>
+            <h3>Add Link (for if user has no profile yet) to Create Profile!!</h3>
+        </div>
+
 		<form onSubmit={handleSubmit}>
 			<label htmlFor="email">Email: </label>
 			<input
@@ -48,6 +53,7 @@ const Login = () => {
 			/>
 			<button type="submit">Login</button>
 		</form>
+        </>
 	)
 }
 export default Login
