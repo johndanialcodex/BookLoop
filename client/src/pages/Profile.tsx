@@ -6,10 +6,12 @@ import UserMessages from "../components/UserMessages"
 
 const Profile = () => {
   return (
-    <div className="home">
+    <div className="profile">
         <UserInfo />
         <UserListings />
+        <div>"Browse More Listings!" Link to Browse Listings Page...</div>
         <UserMessages />
+        <div>Link to go back to Home Page...</div>
     </div>
   )
 }

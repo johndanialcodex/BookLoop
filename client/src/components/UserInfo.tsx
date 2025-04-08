@@ -10,7 +10,7 @@ const UserInfo = () => {
                         <div>Approx Location</div>
                     </li>
                 </ul>
-                </>
+            </>
     )
 }
 
