@@ -16,3 +16,18 @@ export const getSecret = async (): Promise<any> => {
 		})
 	).data
 }
+
+const postUser = async (token: string, email: string, name: string) => {
+  const response = await axios.post(
+    `${import.meta.env.VITE_API_BASE_URL}/profile`,
+    { firebaseUid: auth.currentUser?.uid, email, name },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  )
+  return response.data;
+}
+
+export default postUser

@@ -5,7 +5,7 @@ const BookListingsDisplay = () => {
         <>
         <div className="book-listing-display">
         <h2>Book Listings:</h2>
-        <div>Listings displayed here, filtered by city...</div>
+        <div>Listings displayed here, filtered by city... We can map through the listings once available.</div>
         </div>
         </>
     )

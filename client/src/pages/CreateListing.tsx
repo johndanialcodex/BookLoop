@@ -1,4 +1,4 @@
-import ListingForm from "../components/ListingForm"
+import ListingForm from "../components/CreateListingForm"
 
 const CreateListing= () => {
   return (
