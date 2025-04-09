@@ -2,7 +2,7 @@ import { Schema, model } from "mongoose"
 
 const UserSchema = new Schema(
 	{
-		firebaseUid: { type: String, required: true, unique: true },
+		firebaseUid: { type: String, required: true },
 		username: { type: String, required: true },
 		city: { type: String, required: true }
 	},

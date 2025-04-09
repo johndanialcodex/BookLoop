@@ -1,36 +1,19 @@
 import User from "../models/User"
 import HTTPHandler from "../interfaces/HTTPHandler"
-import { auth } from '../firebaseAdmin'
 
-// CREATE
-export const postUser: HTTPHandler = async (req: Request, res: Response) => {
-	const { firebaseUid, name, city } = req.body;  // Expecting firebaseUid, name, and city
   
-	try {
-	  // Validate the Firebase UID using Firebase Admin SDK
-	  const firebaseUser = await auth.getUser(firebaseUid);
-  
-	  if (!firebaseUser) {
-		// If the Firebase user is not found, return an error
-		return res.status(404).send("Firebase user not found");
-	  }
-  
-	  // If Firebase user is valid, create the user in your MongoDB
-	  const user = new User({
-		firebaseUid,
-		name,
-		city,
-	  });
-  
-	  await user.save();  // Save user to MongoDB
-  
-	  // Return the created user
-	  res.status(201).send(user);
-	} catch (error: any) {
-	  console.error(error);
-	  res.status(500).send("Internal Server Error");
-	}
-  };
+//CREATE
+
+export const postUser: HTTPHandler = async (req, res) => {
+    try {
+        const { firebaseUid, username, city } = req.body
+        const user = new User({ firebaseUid, username, city })
+        await user.save()
+        res.status(201).send(user)
+    } catch (err) {
+        res.status(400).send("Bad request.")
+    }
+}
 
 
 // READ
