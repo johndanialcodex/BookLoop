@@ -3,13 +3,13 @@ import { useState } from "react";
 import Booklisting from "../interfaces/Booklisting"
 
 const BookListingsDisplay = ({listings }: { listings: Booklisting[] }) => {
-    const [selectedCity, setselectedCity] = useState<string>('');
+    const [selectedCity, setselectedCity] = useState<string>('')
 
-    const cities = Array.from(new Set(listings.map(listing => listing.city)));
+    const cities = Array.from(new Set(listings.map(listing => listing.city)))
 
     const filteredListings = selectedCity
         ? listings.filter(listing => listing.city === selectedCity)
-        : listings;
+        : listings
 
         return (
             <div>

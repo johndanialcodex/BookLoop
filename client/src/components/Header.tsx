@@ -5,7 +5,7 @@ const Header = () => {
         <header>
             <h1>Book Loop</h1>
             <nav>
-                <Link to="/profile">Profile</Link>
+                <Link to="/create-profile">Create Profile</Link>
             </nav>
         </header>
     )
