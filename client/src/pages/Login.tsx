@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword
 } from "firebase/auth"
 import { auth } from "../firebase"
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   const [email, setEmail] = useState("")
@@ -46,6 +47,7 @@ const Login = () => {
       </form>
       <div>
         <a href="/create-profile">Don't have an account? Create one</a>
+        <Link to="/">Go Back to Home Page</Link>
       </div>
     </>
   )
