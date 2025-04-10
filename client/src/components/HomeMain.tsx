@@ -1,13 +1,15 @@
+import { Link } from 'react-router-dom'
+
 const HomeMain = () => {
     return (
         <>
         <h2>Main</h2>
                 <ul>
                     <li>
-                        <div>Link to List a Book (If not logged in, link to login form!)</div>
+                    <Link to="/create-listing">Create a Listing!</Link>
                     </li>
                     <li>
-                        <div>Link to Browse Books (If not logged in, link to login form!)</div>
+                    <Link to="/browse">Browse Books!</Link>
                     </li>
                 </ul>
                 </>

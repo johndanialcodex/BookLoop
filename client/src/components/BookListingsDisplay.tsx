@@ -2,7 +2,7 @@ import BookListing from "./BookListings"
 import React, { useState } from "react";
 import Booklisting from "../interfaces/Booklisting"
 
-const BookListingsDisplay = ({ listings }: { listings: Booklisting[] }) => {
+const BookListingsDisplay = ({listings }: { listings: Booklisting[] }) => {
     const [selectedCity, setselectedCity] = useState<string>('');
 
     const cities = Array.from(new Set(listings.map(listing => listing.city)));

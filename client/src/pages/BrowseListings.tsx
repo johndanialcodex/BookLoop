@@ -1,4 +1,5 @@
 import "../styles/Profile.css"
+import { Link } from 'react-router-dom'
 
 import BookListingsDisplay from "../components/BookListingsDisplay"
 
@@ -6,7 +7,7 @@ const BrowseListings = () => {
   return (
     <div className="browse-listings">
         <BookListingsDisplay />
-        <div>Link to go back to Home Page...</div>
+        <Link to="/">Go Back to Home Page</Link>
     </div>
   )
 }
