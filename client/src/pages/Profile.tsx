@@ -11,8 +11,10 @@ const Profile = () => {
     <div className="profile">
         <UserInfo />
         <UserListings />
-        <div>"Browse More Listings!" Link to Browse Listings Page...</div>
-        <UserMessages />
+        <Link to="/browse">Browse More Listings!</Link>
+        <div>User Messages:
+          <UserMessages messages={[]}/>
+          </div>
         <Link to="/">Go Back to Home Page</Link>
     </div>
   )
