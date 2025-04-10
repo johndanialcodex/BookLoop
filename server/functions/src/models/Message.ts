@@ -1,12 +1,12 @@
 import { Schema, model } from "mongoose"
 
 const MessageSchema = new Schema(
-	{
-		senderId: { type: String, required: true },
-		receiverId: { type: String, required: true },
-		message: { type: String, required: true }
-	},
-	{ timestamps: true }
+  {
+    senderId: { type: Schema.Types.ObjectId, ref: "User", required: true }, // Referencing MongoDB _id
+    receiverId: { type: Schema.Types.ObjectId, ref: "User", required: true }, // Referencing MongoDB _id
+    message: { type: String, required: true },
+  },
+  { timestamps: true }
 )
 
 const Message = model("Message", MessageSchema)

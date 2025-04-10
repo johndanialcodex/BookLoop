@@ -2,7 +2,6 @@ import { Schema, model } from "mongoose"
 
 const BookListingSchema = new Schema(
 	{
-		userId: { type: String, required: true },
 		title: { type: String, required: true },
 		author: { type: String, required: true },
         genre: { type: String, required: true },
@@ -17,6 +16,9 @@ const BookListing = model("BookListing", BookListingSchema)
 export default BookListing
 
 /*
+
+		firebaseUid: { type: String, required: true },  // Store the Firebase UID
+
 MODELS LOOK LIKE THIS FOR POSTMAN TESTING:
 {
 "userId": "String", // Firebase UID

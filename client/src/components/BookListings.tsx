@@ -1,4 +1,4 @@
-import Booklisting from "../interfaces/Booklisting";
+import Booklisting from "../interfaces/Booklisting"
 
 const BookListing = (props: { listing?: Booklisting }) => {
     const { listing } = props;
@@ -15,7 +15,7 @@ const BookListing = (props: { listing?: Booklisting }) => {
         <p>City: {listing.city}</p>
         <p>{listing.description}</p>
       </div>
-    );
-  };
+    )
+  }
 
   export default BookListing
