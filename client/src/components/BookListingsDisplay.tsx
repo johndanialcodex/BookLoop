@@ -1,5 +1,5 @@
 import BookListing from "./BookListings"
-import React, { useState } from "react";
+import { useState } from "react";
 import Booklisting from "../interfaces/Booklisting"
 
 const BookListingsDisplay = ({listings }: { listings: Booklisting[] }) => {

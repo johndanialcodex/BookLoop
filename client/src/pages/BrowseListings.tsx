@@ -6,7 +6,7 @@ import BookListingsDisplay from "../components/BookListingsDisplay"
 const BrowseListings = () => {
   return (
     <div className="browse-listings">
-        <BookListingsDisplay />
+        <BookListingsDisplay listings={[]} />
         <Link to="/">Go Back to Home Page</Link>
     </div>
   )
