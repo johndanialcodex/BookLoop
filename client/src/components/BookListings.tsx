@@ -1,21 +1,19 @@
-import Booklisting from "../interfaces/Booklisting"
+import React from 'react'
+import Booklisting from '../interfaces/BookListing'
 
-const BookListing = (props: { listing?: Booklisting }) => {
-    const { listing } = props;
-  
-    if (!listing) {
-      return <div>No book listing available.</div>;
-    }
-  
-    return (
-      <div>
-        <h2>{listing.title}</h2>
-        <p>Author: {listing.author}</p>
-        <p>Genre: {listing.genre}</p>
-        <p>City: {listing.city}</p>
-        <p>{listing.description}</p>
-      </div>
-    )
-  }
+interface BookListingProps {
+  listing: Booklisting
+}
 
-  export default BookListing
+const BookListing: React.FC<BookListingProps> = ({ listing }) => {
+  return (
+    <div className="book-listing">
+      <h4><strong>Title:</strong> {listing.title}</h4>
+      <p><strong>Author:</strong> {listing.author}</p>
+      <p><strong>Genre:</strong> {listing.genre}</p>
+      <p><strong>Description:</strong> {listing.description}</p>
+    </div>
+  )
+}
+
+export default BookListing

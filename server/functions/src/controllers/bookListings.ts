@@ -1,26 +1,37 @@
 import BookListing from "../models/BookListing"
 import HTTPHandler from "../interfaces/HTTPHandler"
+import User from "../models/User"
 
 // CREATE
 
+
 export const postBookListing: HTTPHandler = async (req, res) => {
+	console.log(req.body) // Log the incoming request body
 	try {
-	  const { title, author, genre, description, city } = req.body
+	  const { title, author, genre, description, userId } = req.body
+  
+	  const user = await User.findById(userId)
+	  if (!user) {
+		return res.status(404).json({ message: "User not found" })
+	  }
+  
 	  const bookListing = new BookListing({
 		title,
 		author,
 		genre,
 		description,
-		city,
+		user: user._id
 	  })
-
+	  console.log(bookListing) // Log the created bookListing object
 	  await bookListing.save()
-	  res.status(201).send(bookListing)
+	  return res.status(201).json(bookListing)
 	} catch (e: any) {
-	  res.status(403).send("Invalid Request")
+	  console.error(e) // Log the error for more details
+	  return res.status(500).json({ message: "Internal server error", error: e.message })
 	}
-  };
+  }
 
+  
 /* export const postBookListing: HTTPHandler = async (req, res) => {
 	try {
 	  const { title, author, genre, description, city } = req.body
@@ -39,14 +50,24 @@ export const postBookListing: HTTPHandler = async (req, res) => {
 
 export const getBookListings: HTTPHandler = async (req, res) => {
 	try {
+	  const userId = req.query.userId
+	  const bookListings = await BookListing.find({ user: userId })
+	  res.status(200).send(bookListings)
+	} catch (e: any) {
+	  res.status(500).send("Internal Server Error")
+	}
+}
+
+/*
+
+export const getBookListings: HTTPHandler = async (req, res) => {
+	try {
 	  const bookListings = await BookListing.find();
 	  res.status(200).send(bookListings)
 	} catch (e: any) {
 	  res.status(500).send("Internal Server Error")
 	}
   }
-
-/*
 
 export const getBookListings: HTTPHandler = async (req, res) => {
 	try {

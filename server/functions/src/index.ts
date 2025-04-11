@@ -12,12 +12,12 @@ import usersRouter from "./routes/usersRouter"
 
 const app = express()
 
-app.use(cors({ origin: true }))
+app.use(cors())
 app.use(express.json())
 app.use(establishConnection)
 app.use("/bookListings", bookListingsRouter)
 app.use("/messages", messagesRouter)
-app.use("/users", usersRouter)
+app.use("/user", usersRouter)
 app.use("/secret", checkAuth, secretsRouter)
 
 export const api = onRequest(app)

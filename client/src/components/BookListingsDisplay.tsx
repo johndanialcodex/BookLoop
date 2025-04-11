@@ -1,6 +1,12 @@
+const BookListingsDisplay = () => null
+
+export default BookListingsDisplay
+
+/*
+
 import BookListing from "./BookListings"
 import { useState } from "react";
-import Booklisting from "../interfaces/Booklisting"
+import Booklisting from "../interfaces/BookListing"
 
 const BookListingsDisplay = ({listings }: { listings: Booklisting[] }) => {
     const [selectedCity, setselectedCity] = useState<string>('')
@@ -33,3 +39,5 @@ const BookListingsDisplay = ({listings }: { listings: Booklisting[] }) => {
 }
 
 export default BookListingsDisplay
+
+*/

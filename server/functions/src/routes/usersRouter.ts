@@ -11,8 +11,8 @@ const routes = Router()
 
 routes.post("/", postUser)
 routes.get("/", getUsers)
-routes.get("/:firebaseUid", getUser)
-routes.put("/:firebaseUid", putUser)
-routes.delete("/:firebaseUid", deleteUser)
+routes.get("/:id", getUser)
+routes.put("/:id", putUser)
+routes.delete("/:id", deleteUser)
 
 export default routes

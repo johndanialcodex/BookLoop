@@ -24,6 +24,7 @@ const checkAuth = async (req: Request, res: Response, next: NextFunction) => {
   
   export default checkAuth
 
+
 /*
 const checkAuth = async (
 	req: Request,
