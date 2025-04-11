@@ -15,6 +15,7 @@ const CreateProfileForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    console.log("Form submitted")
 
     if (!name || !city) {
       alert("Please fill out all fields.")
@@ -23,9 +24,10 @@ const CreateProfileForm = () => {
 
     try {
       const response = await postUser(name, city)
-
+      console.log("API response:", response)
       if (response.status === 201) {
         navigate("/profile")
+        console.log("Navigating to profile page...")
       } else {
         alert("Something went wrong. Please try again.")
       }

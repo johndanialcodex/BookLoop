@@ -23,5 +23,5 @@ export const postUser = async (username: string, city: string) => {
 	  `${import.meta.env.VITE_API_BASE_URL}/user`,
 	  { username, city }
 	)
-	return response.data
+	return response
   }
