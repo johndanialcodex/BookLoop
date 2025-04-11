@@ -5,14 +5,13 @@ import HTTPHandler from "../interfaces/HTTPHandler"
 //CREATE
 
 export const postUser: HTTPHandler = async (req, res) => {
-	const { username, city } = req.body
-	
 	try {
-	  const user = new User({ username, city })
+	  const user = new User(req.body)
 	  await user.save()
+	  console.log(user)
 	  res.status(201).send(user)
 	} catch (err) {
-	  res.status(400).send("Bad request.")
+	  res.status(400).send("Bad Request")
 	}
   }
 

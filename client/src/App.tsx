@@ -23,6 +23,8 @@ function App() {
 		<Route path="/browse" element={<BrowseListings />} />
 		<Route path="/create-listing" element={<CreateListing />} />
 		<Route path="/create-profile" element={<CreateProfile />} />
+    <Route path="/profile/:id" element={<Profile />} />
+    <Route path="/create-listing/:id" element={<CreateListing />} />
 		<Route path="/login" element={<Login />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

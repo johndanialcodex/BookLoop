@@ -1,25 +1,31 @@
 import BookListing from "../models/BookListing"
 import HTTPHandler from "../interfaces/HTTPHandler"
+import User from "../models/User"
 
 // CREATE
 
 export const postBookListing: HTTPHandler = async (req, res) => {
 	try {
-	  const { title, author, genre, description, city } = req.body
+	  const { title, author, genre, description, userId } = req.body
+	  const user = await User.findById(userId)
+	  if (!user) {
+		return res.status(404).send("User not found")
+	  }
+  
 	  const bookListing = new BookListing({
 		title,
 		author,
 		genre,
 		description,
-		city,
+		user: user._id
 	  })
-
+  
 	  await bookListing.save()
-	  res.status(201).send(bookListing)
+	  return res.status(201).send(bookListing)
 	} catch (e: any) {
-	  res.status(403).send("Invalid Request")
+	  return res.status(403).send("Invalid Request")
 	}
-  };
+  }
 
 /* export const postBookListing: HTTPHandler = async (req, res) => {
 	try {

@@ -1,4 +1,4 @@
-import Booklisting from "../interfaces/Booklisting"
+import Booklisting from "../interfaces/BookListing";
 
 const BookListing = (props: { listing?: Booklisting }) => {
     const { listing } = props;

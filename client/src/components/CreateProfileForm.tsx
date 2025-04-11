@@ -1,7 +1,7 @@
 import { useState } from "react"
 import GooglePlacesAutocomplete from "./GooglePlacesAutocomplete"
 import { useNavigate } from "react-router-dom"
-import { postUser } from "../services/authService"
+import { postUser } from "../services/postUserService"
 
 
 const CreateProfileForm = () => {
@@ -26,7 +26,11 @@ const CreateProfileForm = () => {
       const response = await postUser(name, city)
       console.log("API response:", response)
       if (response.status === 201) {
-        navigate("/profile")
+        const userId = response.data._id
+        console.log("Created user ID:", userId)
+        console.log("Post response data:", response.data)
+        navigate(`/profile/${userId}`)
+        //navigate("/profile")
         console.log("Navigating to profile page...")
       } else {
         alert("Something went wrong. Please try again.")
