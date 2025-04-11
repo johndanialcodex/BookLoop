@@ -9,6 +9,11 @@ import {
 
 const routes = Router()
 
+routes.post("/", (req, res, next) => {
+	console.log("Request reached the POST route");
+	next();
+  }, postBookListing);
+
 routes.post("/", postBookListing)
 routes.get("/", getBookListings)
 routes.get("/:id", getBookListing)

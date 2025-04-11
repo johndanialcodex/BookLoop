@@ -1,9 +1,17 @@
 import axios from "axios"
 import Booklisting from "../interfaces/BookListing"
 
-// Use the correct environment variable VITE_API_BASE_URL
+export const postBookListing = async (listing: Omit<Booklisting, "id">) => {
+  const response = await axios.post(
+    `${import.meta.env.VITE_API_BASE_URL}/bookListings`,
+    listing
+  )
+  return response
+}
+
+/*
 const API = `${import.meta.env.VITE_API_BASE_URL}/bookListings`
-console.log("API URL:", API)  // Log to verify the URL is correct
+console.log("API URL:", API)
 
 export const createBookListing = async (form: Omit<Booklisting, "id">) => {
   try {
@@ -24,3 +32,5 @@ export const getAllBookListings = async (): Promise<Booklisting[]> => {
     throw err
   }
 }
+
+*/
