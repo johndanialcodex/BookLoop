@@ -1,13 +1,12 @@
 import { useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { postBookListing } from "../services/listingService"
-import Booklisting from "../interfaces/BookListing"
 
 const CreateListingForm = () => {
   const { id } = useParams()
   const navigate = useNavigate()
 
-  const [form, setForm] = useState<Omit<Booklisting, "id">>({
+  const [form, setForm] = useState({
     title: "",
     author: "",
     genre: "",
@@ -32,7 +31,7 @@ const CreateListingForm = () => {
         author: "",
         genre: "",
         description: "",
-        userId: ""
+        userId: id || ""
       })
     } catch (err) {
       console.error("Error creating book listing:", err)

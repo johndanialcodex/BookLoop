@@ -1,5 +1,5 @@
-export default interface User {
-    id: string,
+export interface User {
+    _id: string,
     username: string,
     city: string
 }

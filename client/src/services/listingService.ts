@@ -1,5 +1,5 @@
 import axios from "axios"
-import Booklisting from "../interfaces/BookListing"
+import Booklisting from "../interfaces/Booklisting"
 
 export const postBookListing = async (listing: Omit<Booklisting, "id">) => {
   const response = await axios.post(

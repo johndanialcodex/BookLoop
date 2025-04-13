@@ -5,7 +5,7 @@ import UserMessages from "../components/UserMessages"
 import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import axios from "axios"
-import User from "../interfaces/User"
+import { User } from "../interfaces/User"
 
 const Profile = () => {
   const { id } = useParams()
@@ -31,7 +31,7 @@ const Profile = () => {
     <div className="profile">
         <UserInfo name={user.username} city={user.city} />
         <UserListings />
-        <Link to="/browse">Browse More Listings!</Link>
+        <Link to={`/browse/city/${user.city}`}>Browse listings in {user.city}</Link>
         <div>User Messages:
           <UserMessages messages={[]}/>
           </div>
