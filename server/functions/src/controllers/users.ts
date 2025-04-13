@@ -34,7 +34,16 @@ export const postUser: HTTPHandler = async (req, res) => {
 
 export const getUsers: HTTPHandler = async (req, res) => {
 	try {
-	  const users = await User.find()
+	  const { city } = req.query
+  
+	  let users
+  
+	  if (city) {
+		users = await User.find({ city })
+	  } else {
+		users = await User.find()
+	  }
+  
 	  res.status(200).send(users)
 	} catch (e: any) {
 	  res.status(500).send("Internal Server Error")
@@ -42,6 +51,17 @@ export const getUsers: HTTPHandler = async (req, res) => {
   }
 
 /*
+export const getUsers: HTTPHandler = async (req, res) => {
+	try {
+	  const users = await User.find()
+	  res.status(200).send(users)
+	} catch (e: any) {
+	  res.status(500).send("Internal Server Error")
+	}
+  }
+
+  /*
+
 
 export const getUsers: HTTPHandler = async (
 	req,

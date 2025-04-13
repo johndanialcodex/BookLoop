@@ -1,5 +1,5 @@
 import React from 'react'
-import Booklisting from '../interfaces/BookListing'
+import Booklisting from '../interfaces/Booklisting'
 
 interface BookListingProps {
   listing: Booklisting

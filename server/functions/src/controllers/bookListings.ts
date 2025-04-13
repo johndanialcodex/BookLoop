@@ -48,9 +48,10 @@ export const postBookListing: HTTPHandler = async (req, res) => {
 
 // READ ALL
 
+
 export const getBookListings: HTTPHandler = async (req, res) => {
 	try {
-	  const userId = req.query.userId
+	  const userId = req.query.user
 	  const bookListings = await BookListing.find({ user: userId })
 	  res.status(200).send(bookListings)
 	} catch (e: any) {
