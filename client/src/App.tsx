@@ -29,7 +29,7 @@ function App() {
 		<Route path="/create-profile" element={<CreateProfile />} />
     <Route path="/profile/:id" element={<Profile />} />
     <Route path="/create-listing/:id" element={<CreateListing />} />
-    <Route path="/browse/city/:city" element={<BookListingsDisplay />} />
+    <Route path="/browse/city/:city/user/:id" element={<BookListingsDisplay />} />
 		<Route path="/login" element={<Login />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

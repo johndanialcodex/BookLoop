@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { postBookListing } from "../services/listingService"
+import { Link } from "react-router-dom"
 
 const CreateListingForm = () => {
   const { id } = useParams()
@@ -39,6 +40,7 @@ const CreateListingForm = () => {
   }
 
   return (
+    <>
     <form onSubmit={handleSubmit}>
       <div>
         <label>Title: </label>
@@ -56,8 +58,10 @@ const CreateListingForm = () => {
         <label>Description: </label>
         <textarea name="description" value={form.description} onChange={handleChange} />
       </div>
-      <button type="submit">Create Listing</button>
+      <button type="submit">Submit Your Book</button>
     </form>
+    <div><Link to={`/profile/${id}`}>Back to Profile</Link></div>
+    </>
   )
 }
 

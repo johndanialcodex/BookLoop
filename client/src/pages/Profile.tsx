@@ -31,9 +31,9 @@ const Profile = () => {
     <div className="profile">
         <UserInfo name={user.username} city={user.city} />
         <UserListings />
-        <Link to={`/browse/city/${user.city}`}>Browse listings in {user.city}</Link>
-        <div>User Messages:
-          <UserMessages messages={[]}/>
+        <h3><Link to={`/browse/city/${user.city}/user/${user._id}`}>Browse for books in {user.city}</Link></h3>
+        <div><h2>My Messages:</h2>
+        <UserMessages user={user} />
           </div>
         <Link to="/">Go Back to Home Page</Link>
     </div>

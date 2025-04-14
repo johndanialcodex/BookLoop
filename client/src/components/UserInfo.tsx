@@ -5,8 +5,8 @@ interface UserInfoProps {
   
   const UserInfo: React.FC<UserInfoProps> = ({ name, city }) => {
     return (
-      <>
-        <h2>User Info</h2>
+      <div className="user-info">
+        <h2 className="my-profile">My Profile</h2>
         <ul>
           <li>
             <div><strong>Name:</strong> {name}</div>
@@ -15,7 +15,7 @@ interface UserInfoProps {
             <div><strong>City:</strong> {city}</div>
           </li>
         </ul>
-      </>
+      </div>
     )
   }
   
