@@ -27,21 +27,27 @@ const UserListings = () => {
 
   return (
     <>
-      <h3>
-        <Link to={`/create-listing/${id}`}>Create a Listing!</Link>
+      <h3 className="start-swap">
+        <Link to={`/create-listing/${id}`}>Start a Swap!</Link>
       </h3>
-      <h2>User Listings</h2>
+      <div className="my-books">
+      <h2>My Books</h2>
+      <div className="my-books-list">
       <ul>
         {bookListings.length > 0 ? (
           bookListings.map((listing) => (
             <li key={listing.userId}>
+              <div className="book-item">
               <BookListing listing={listing} />
+              </div>
             </li>
           ))
         ) : (
-          <p>No Book Listings available</p>
+          <p>You haven't listed any books yet. <Link to={`/create-listing/${id}`}>Start a Swap here!</Link></p>
         )}
       </ul>
+      </div>
+      </div>
     </>
   )
 }

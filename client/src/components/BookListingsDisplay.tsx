@@ -4,12 +4,18 @@ import BookListing from './BookListings'
 import Booklisting from '../interfaces/Booklisting'
 import { User } from '../interfaces/User'
 import { useParams } from 'react-router-dom'
+import MessageModal from './MessageModal'
+import MessageButton from './MessageButton'
+import { Link } from 'react-router-dom'
 
 const BookListingsDisplay = () => {
-  const { city } = useParams<{ city: string }>()
+  const { city, id } = useParams<{ city: string, id: string }>()
 
   const [users, setUsers] = useState<User[]>([])
   const [listingsByUser, setListingsByUser] = useState<Record<string, Booklisting[]>>({})
+  const [selectedReceiverId, setSelectedReceiverId] = useState<string | null>(null)
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     if (!city) return
@@ -38,17 +44,32 @@ const BookListingsDisplay = () => {
     fetchUsersAndListings()
   }, [city])
 
+  const handleMessageClick = (receiverId: string) => {
+    setSelectedReceiverId(receiverId)
+    setIsModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+    setSelectedReceiverId(null)
+  }
+
   return (
     <div>
-      <h2>Users Listing Books in {city}</h2>
+      <h2>Swappers Available in {city}</h2>
+      <div><Link to={`/profile/${id}`}>Back to Profile</Link></div>
       {users.map((user) => (
-        <div key={user._id}>
-          <h3>{user.username}</h3>
+        <div className="swapper-card" key={user._id}>
+          <h3>Swapper: {user.username}</h3>
           <ul>
             {listingsByUser[user._id]?.length > 0 ? (
               listingsByUser[user._id].map((listing) => (
                 <li key={listing.userId}>
+                  <div className="listing-card">
                   <BookListing listing={listing} />
+                  
+                  <MessageButton receiverId={user._id} onClick={handleMessageClick} />
+                  </div>
                 </li>
               ))
             ) : (
@@ -57,6 +78,15 @@ const BookListingsDisplay = () => {
           </ul>
         </div>
       ))}
+
+      
+      {isModalOpen && selectedReceiverId && (
+        <MessageModal 
+        senderId={id}
+        receiverId={selectedReceiverId} 
+        onClose={closeModal} 
+      />
+      )}
     </div>
   )
 }

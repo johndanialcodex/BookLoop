@@ -1,6 +1,8 @@
 export default interface Message {
-    senderId: string,
-    receiverId: string,
-    message: string,
-    timestamp: number
-}
+    _id?: string
+    senderId: string
+    receiverId: string
+    message: string
+    createdAt?: string
+    updatedAt?: string
+  }

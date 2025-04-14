@@ -1,4 +1,4 @@
-import "../styles/Profile.css"
+import "../styles/Browse.css"
 import { Link } from 'react-router-dom'
 
 import BookListingsDisplay from "../components/BookListingsDisplay"
