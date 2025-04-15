@@ -1,10 +1,12 @@
+import "../styles/HomeFeature.css"
+import bookLogo from "../assets/Book1.svg"
+
 const HomeFeature = () => {
     return (
-        <>
-        <h2>Feature</h2>
-        <div>"Because books should keep circulating!</div>
-        <div>*Graphic Logo*</div>
-        </>
+        <div className="home__feature">
+            <p className="home__text">Keep books circulating!</p>
+            <img src={bookLogo} alt="Book Logo" className="book_logo" />
+        </div>
     )
 }
 

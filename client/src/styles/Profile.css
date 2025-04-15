@@ -6,8 +6,18 @@ body {
     margin: 0 auto;
 }
 
-.user-info {
-    background-color: #A7C4A0;
+.header-logged-in-container {
+  margin-top: 0;
+}
+
+.my-books-label {
+  text-align: center;
+}
+
+.my-book-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .my-books {
@@ -30,12 +40,14 @@ body {
   }
 
 .my-books-list {
+   font-size: 1.2rem; 
     width: 70%;
 }
 
 .book-item {
     border-left: 3px solid #F96167;
-    padding: 1rem;
+    border-bottom: 2px solid #F96167;
+    padding: 0.2rem;
 }
 
 a {
@@ -49,6 +61,21 @@ a:hover {
 
 ul {
     list-style: none;
+}
+
+.my-messages-label {
+  text-align: center;
+}
+
+link {
+  text-align: center;
+}
+
+.message-box-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 1em;
 }
 
 .message-box {
@@ -86,3 +113,23 @@ ul {
     margin-bottom: 1rem;
     text-align: left;
   }
+
+  .start-swap,
+  .browse-link {
+    text-align: center;
+    font-size: 1rem;
+    border: 1px solid #F96167;
+    margin: 1rem auto;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 90%; /* nice and roomy on mobile */
+    max-width: 500px; /* so they don't stretch too far on big screens */
+    display: block;
+  }
+
+@media (min-width: 768px) {
+  .start-swap,
+  .browse-link {
+    width: 60%
+  }
+}

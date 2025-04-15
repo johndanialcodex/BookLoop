@@ -38,16 +38,15 @@ export const postMessage: HTTPHandler = async (req, res) => {
 }
 */
 // READ ALL
-
 export const getMessages: HTTPHandler = async (req, res) => {
-	const { userId } = req.params // MongoDB _id of user (sender or receiver)
+	const { user } = req.query
   
 	try {
 	  const messages = await Message.find({
-		$or: [{ senderId: userId }, { receiverId: userId }],
+		$or: [{ senderId: user }, { receiverId: user }],
 	  })
   
-	  res.status(200).send(messages);
+	  res.status(200).send(messages)
 	} catch (e: any) {
 	  res.status(500).send("Internal Server Error")
 	}

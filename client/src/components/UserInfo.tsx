@@ -1,3 +1,5 @@
+import "../styles/UserInfo.css"
+
 interface UserInfoProps {
     name: string
     city: string

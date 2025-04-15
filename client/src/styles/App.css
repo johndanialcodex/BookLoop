@@ -1,0 +1,23 @@
+body {
+    padding: 1rem;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+@media (min-width: 768px) {
+    body {
+      flex-direction: row;
+      padding: 2rem;
+      font-size: 1.1rem;
+    }
+  }
+
+@media (min-width: 1024px) {
+    body {
+      max-width: 1200px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+    }
+  }
