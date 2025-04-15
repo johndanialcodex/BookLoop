@@ -27,11 +27,8 @@ const UserListings = () => {
 
   return (
     <>
-      <h3 className="start-swap">
-        <Link to={`/create-listing/${id}`}>Start a Swap!</Link>
-      </h3>
+      <div className="my-book-wrapper">
       <div className="my-books">
-      <h2>My Books</h2>
       <div className="my-books-list">
       <ul>
         {bookListings.length > 0 ? (
@@ -48,6 +45,10 @@ const UserListings = () => {
       </ul>
       </div>
       </div>
+      </div>
+      <h3 className="start-swap">
+        <Link to={`/create-listing/${id}`}>List a book and start swapping!</Link>
+      </h3>
     </>
   )
 }

@@ -1,0 +1,34 @@
+.home__feature {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0;
+}
+
+.book_logo {
+    width: 90px;
+    height: auto;
+    margin-top: 0.2rem;
+}
+
+.home__text {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #557F4E;
+}
+
+/* Media queries */
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+    .home__feature {
+        padding: 2rem;
+    }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+}

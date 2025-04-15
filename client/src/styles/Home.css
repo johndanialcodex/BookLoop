@@ -1,4 +1,49 @@
+/* General body styling for the page */
 body {
     margin: 0 auto;
     font-size: 25px;
+    color: #2E2E2E;
+}
+
+/* Outer container for home page */
+.home {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Mobile-first layout - default styling for HomeFeature */
+.home__feature {
+    border-radius: 8px;
+}
+
+/* Media queries for layout changes */
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+    .home {
+        padding: 2rem;
+        gap: 2.5rem;
+    }
+
+    /* Add padding to HomeMain and HomeFeature sections */
+    .home__main,
+    .home__feature {
+        padding: 2rem;
+    }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+    .home {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Add border radius for HomeMain and HomeFeature */
+    .home__main,
+    .home__feature {
+        border-radius: 12px;
+    }
 }

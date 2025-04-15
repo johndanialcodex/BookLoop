@@ -12,12 +12,3 @@ const MessageSchema = new Schema(
 const Message = model("Message", MessageSchema)
 
 export default Message
-
-/*
-{
-"senderId": "String", // Firebase UID
-"receiverId": "String", // Firebase UID
-"message": "String",
-"timestamp": "Date"
-}
-*/

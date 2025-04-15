@@ -1,0 +1,57 @@
+/* Header styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(to right, #FFE8D6, #e4caca);
+}
+
+.header__logo {
+    width: 150px;
+    height: auto;
+  }
+
+/* Nav styling */
+.header__nav {
+    font-size: 1rem;
+    display: flex;
+    gap: 1rem;
+    text-align: right;
+}
+
+/* Link styling */
+.header__link {
+    text-decoration: none;
+    color: #a57f7f;
+    font-weight: bold;
+}
+
+/* Media queries for header */
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+    .header__title {
+        font-size: 2.5rem;
+    }
+
+    .header__nav {
+        font-size: 1.25rem;
+    }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+    .header {
+        padding: 1.5rem 2rem;
+    }
+
+    .header__title {
+        font-size: 3rem;
+    }
+
+    .header__nav {
+        gap: 2rem;
+    }
+
+}

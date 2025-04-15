@@ -1,19 +1,31 @@
 body {
     color: #2E2E2E;
     font-family: 'Arial', sans-serif;
-    background-color: #fffdf9
-}
-
-.city {
-    color: #137C8B;
+    background-color: #fffdf9;
+    font-size: 1rem;
 }
 
 .swapper-card {
     background-color: #A7C4A0;
+    margin: 1em;
+    max-height: 400px;
+    overflow-y: auto;
+    width: 75%;
+    border-radius: 1em;
+}
+
+.swapper-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.swapper-card::-webkit-scrollbar-thumb {
+  background-color: #137C8B;
+  border-radius: 4px;
 }
 
 .listing-card {
     border-left: 3px solid #137C8B;
+    border-bottom: 3px solid #137C8B;
     padding: 1rem;
 }
 

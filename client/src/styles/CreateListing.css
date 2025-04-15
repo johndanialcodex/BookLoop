@@ -6,7 +6,15 @@ body {
     margin: 0 auto;
 }
 
+.listing-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 form {
+    margin: 10px;
     background-color:  #A7C4A0;
     width: 50%;
+    text-align: left;
 }

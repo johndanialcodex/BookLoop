@@ -65,7 +65,7 @@ const CreateProfileForm = () => {
       </form>
 
       <div>
-        <p>Selected City: {city}</p>
+        <p>You'll be swapping in: {city}</p>
       </div>
     </div>
   )

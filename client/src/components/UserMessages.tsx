@@ -34,6 +34,7 @@ const UserMessages = ({ user }: { user: { _id: string } }) => {
   }
 
   return (
+    <div className="message-box-wrapper">
     <div className="message-box">
 {messages.map(msg => (
   <div key={msg._id} className={msg.senderId === user._id ? 'sent' : 'received'}>
@@ -53,6 +54,7 @@ const UserMessages = ({ user }: { user: { _id: string } }) => {
     )}
   </div>
 ))}
+    </div>
     </div>
   )
 }

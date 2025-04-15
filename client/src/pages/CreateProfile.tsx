@@ -1,5 +1,6 @@
 import CreateProfileForm from "../components/CreateProfileForm"
 import { Link } from 'react-router-dom'
+import "../styles/CreateProfile.css";
 
 const CreateProfile= () => {
   return (
