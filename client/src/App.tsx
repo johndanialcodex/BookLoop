@@ -12,6 +12,7 @@ import CreateListing from "./pages/CreateListing";
 import Login from "./pages/Login";
 import CreateProfile from "./pages/CreateProfile";
 import SwapperProfile from "./pages/SwapperProfile";
+import EditListingForm from "./components/EditListingForm";
 
 import { UserContextProvider } from "./contexts/UserContext";
 
@@ -31,7 +32,10 @@ function App() {
     <Route path="/create-listing/:id" element={<CreateListing />} />
     <Route path="/browse/city/:city/user/:id" element={<BrowseListings />} />
     <Route path="/swapper/:id" element={<SwapperProfile />} />
+    <Route path="/edit-listing/:id/:listingId" element={<EditListingForm />} />
+
 		<Route path="/login" element={<Login />} />
+    
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
