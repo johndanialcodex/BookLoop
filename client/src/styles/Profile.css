@@ -122,8 +122,8 @@ link {
     margin: 1rem auto;
     border-radius: 1rem;
     padding: 1rem;
-    width: 90%; /* nice and roomy on mobile */
-    max-width: 500px; /* so they don't stretch too far on big screens */
+    width: 90%;
+    max-width: 500px;
     display: block;
   }
 

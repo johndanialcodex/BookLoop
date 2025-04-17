@@ -1,17 +1,21 @@
 body {
-    color: #2E2E2E;
-    font-family: 'Arial', sans-serif;
-    background-color: #fffdf9;
-    font-size: 1rem;
+  color: #2E2E2E;
+  font-family: 'Arial', sans-serif;
+  background-color: #fffdf9;
+  font-size: 1rem;
+}
+
+.instructions {
+  font-weight: bold;
 }
 
 .swapper-card {
-    background-color: #A7C4A0;
-    margin: 1em;
-    max-height: 400px;
-    overflow-y: auto;
-    width: 75%;
-    border-radius: 1em;
+  background-color: #A7C4A0;
+  margin: 1em;
+  max-height: 400px;
+  overflow-y: auto;
+  width: 75%;
+  border-radius: 1em;
 }
 
 .swapper-card::-webkit-scrollbar {
@@ -24,43 +28,68 @@ body {
 }
 
 .listing-card {
-    border-left: 3px solid #137C8B;
-    border-bottom: 3px solid #137C8B;
-    padding: 1rem;
+  border-left: 3px solid #137C8B;
+  border-bottom: 3px solid #137C8B;
+  padding: 1rem;
 }
 
+/* Modal Styles */
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fffdf9;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* media queries*/
+@media (min-width: 600px) {
   .modal-content {
-    background-color: #fffdf9;
-    padding: 20px;
-    border-radius: 8px;
     width: 80%;
-    max-width: 500px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* tiny screen */
+@media (max-width: 400px) {
+  .modal-content {
+    padding: 1rem;
+  }
+
+  textarea {
+    font-size: 0.9rem;
   }
 
   button {
-    background-color: #137C8B;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 16px;
+    font-size: 0.9rem;
+    padding: 6px 12px;
   }
-  
-  button:hover {
-    background-color: #1f9caf;
-  }
+}
+
+/* Button styles */
+button {
+  background-color: #137C8B;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #1f9caf;
+}

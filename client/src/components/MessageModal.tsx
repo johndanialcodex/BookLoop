@@ -5,10 +5,12 @@ const MessageModal = ({
   senderId,
   receiverId,
   onClose,
+  bookTitle
 }: {
   senderId: string
   receiverId: string
   onClose: () => void
+  bookTitle?: string
 }) => {
   const [messageSent, setMessageSent] = useState(false)
 
@@ -19,6 +21,7 @@ const MessageModal = ({
           <MessageForm
             senderId={senderId}
             receiverId={receiverId}
+            bookTitle={bookTitle}
             onSuccess={() => setMessageSent(true)}
             onClose={onClose}
           />

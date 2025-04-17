@@ -17,6 +17,8 @@ const BookListingsDisplay = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false)
 
+  const [selectedBookTitle, setSelectedBookTitle] = useState<string | null>(null)
+
   useEffect(() => {
     if (!city) return
 
@@ -44,8 +46,9 @@ const BookListingsDisplay = () => {
     fetchUsersAndListings()
   }, [city])
 
-  const handleMessageClick = (receiverId: string) => {
+  const handleMessageClick = (receiverId: string, bookTitle: string) => {
     setSelectedReceiverId(receiverId)
+    setSelectedBookTitle(bookTitle)
     setIsModalOpen(true)
   }
 
@@ -60,7 +63,10 @@ const BookListingsDisplay = () => {
       <div><Link to={`/profile/${id}`}>Back to Profile</Link></div>
       {users.map((user) => (
         <div className="swapper-card" key={user._id}>
-          <h3>Swapper: {user.username}</h3>
+          <h3>
+  Swapper: 
+  <Link to={`/swapper/${user._id}?myId=${id}`}>{user.username}</Link>
+</h3>
           <ul>
             {listingsByUser[user._id]?.length > 0 ? (
               listingsByUser[user._id].map((listing) => (
@@ -68,7 +74,7 @@ const BookListingsDisplay = () => {
                   <div className="listing-card">
                   <BookListing listing={listing} />
                   
-                  <MessageButton receiverId={user._id} onClick={handleMessageClick} />
+                  <MessageButton receiverId={user._id} onClick={() => handleMessageClick(user._id, listing.title)} />
                   </div>
                 </li>
               ))
@@ -80,13 +86,14 @@ const BookListingsDisplay = () => {
       ))}
 
       
-      {isModalOpen && selectedReceiverId && (
-        <MessageModal 
-        senderId={id}
-        receiverId={selectedReceiverId} 
-        onClose={closeModal} 
-      />
-      )}
+{isModalOpen && selectedReceiverId && (
+  <MessageModal 
+    senderId={id}
+    receiverId={selectedReceiverId}
+    bookTitle={selectedBookTitle ?? ""}
+    onClose={closeModal}
+  />
+)}
     </div>
   )
 }
