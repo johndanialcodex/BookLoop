@@ -21,7 +21,7 @@ const UserMessages = ({ user }: { user: { _id: string } }) => {
           return { [userId]: userRes.data.username }
         })
       )
-
+ 
       const usersObj = Object.assign({}, ...usersRes)
       setUsers(usersObj)
     }
