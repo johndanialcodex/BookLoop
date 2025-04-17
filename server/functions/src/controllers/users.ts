@@ -39,17 +39,18 @@ export const getUsers: HTTPHandler = async (req, res) => {
 	  let users
   
 	  if (city) {
-		users = await User.find({ city })
+		users = await User.find({ city: { $regex: new RegExp(city as string, 'i') } })
 	  } else {
 		users = await User.find()
 	  }
   
 	  res.status(200).send(users)
 	} catch (e: any) {
+	  console.error(e)
 	  res.status(500).send("Internal Server Error")
 	}
   }
-
+  
 /*
 export const getUsers: HTTPHandler = async (req, res) => {
 	try {

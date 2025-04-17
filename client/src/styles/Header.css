@@ -12,7 +12,6 @@
     height: auto;
   }
 
-/* Nav styling */
 .header__nav {
     font-size: 1rem;
     display: flex;
@@ -20,14 +19,13 @@
     text-align: right;
 }
 
-/* Link styling */
 .header__link {
     text-decoration: none;
     color: #a57f7f;
     font-weight: bold;
 }
 
-/* Media queries for header */
+/* Media queries */
 
 /* Tablet (768px and up) */
 @media (min-width: 768px) {

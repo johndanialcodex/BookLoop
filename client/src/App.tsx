@@ -11,6 +11,7 @@ import BrowseListings from "./pages/BrowseListings";
 import CreateListing from "./pages/CreateListing";
 import Login from "./pages/Login";
 import CreateProfile from "./pages/CreateProfile";
+import SwapperProfile from "./pages/SwapperProfile";
 
 import { UserContextProvider } from "./contexts/UserContext";
 
@@ -29,6 +30,7 @@ function App() {
     <Route path="/profile/:id" element={<Profile />} />
     <Route path="/create-listing/:id" element={<CreateListing />} />
     <Route path="/browse/city/:city/user/:id" element={<BrowseListings />} />
+    <Route path="/swapper/:id" element={<SwapperProfile />} />
 		<Route path="/login" element={<Login />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
