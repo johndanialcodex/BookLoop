@@ -9,6 +9,12 @@ export const postBookListing = async (listing: Omit<Booklisting, "id">) => {
   return response
 }
 
+
+export const deleteBookListing = async (listingId: string) => {
+  return axios.delete(`${import.meta.env.VITE_API_BASE_URL}/bookListings/${listingId}`)
+}
+
+
 /*
 const API = `${import.meta.env.VITE_API_BASE_URL}/bookListings`
 console.log("API URL:", API)
