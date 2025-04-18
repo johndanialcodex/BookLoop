@@ -143,21 +143,24 @@ export const putBookListing: HTTPHandler = async (req, res) => {
 // DESTROY
 
 export const deleteBookListing: HTTPHandler = async (req, res) => {
-	try {
-	  const bookListing = await BookListing.findById(req.params.id)
-  
-	  if (!bookListing) {
-		return res.status(404).send("Book Listing not found")
-	  }
-  
-	  await BookListing.deleteOne({ _id: req.params.id })
-  
-	  return res.status(204).send()
-	} catch (e: any) {
-	  return res.status(500).send("Internal Server Error")
-	}
-  }
+  try {
+    const bookListing = await BookListing.findById(req.params.id)
 
+    if (!bookListing) {
+      console.error(`Book listing with ID ${req.params.id} not found`)
+      return res.status(404).send("Book Listing not found")
+    }
+
+    // Log the ID of the listing to be deleted
+    console.log(`Deleting book listing with ID: ${req.params.id}`)
+    await BookListing.deleteOne({ _id: req.params.id })
+
+    return res.status(204).send()
+  } catch (e: any) {
+    console.error("Error deleting listing:", e)
+    return res.status(500).send("Internal Server Error")
+  }
+}
   /*
 
 export const deleteBookListing: HTTPHandler = async (req, res) => {

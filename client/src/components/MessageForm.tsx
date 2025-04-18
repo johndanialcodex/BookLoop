@@ -9,13 +9,15 @@ const MessageForm = ({
   receiverId,
   bookTitle,
   onNewMessage,
-  onSuccess
+  onSuccess,
+  onClose
 }: {
   senderId: string,
   receiverId: string,
-  bookTitle?: string, // <-- make optional
+  bookTitle?: string,
   onNewMessage?: (msg: Message) => void,
-  onSuccess?: () => void
+  onSuccess?: () => void,
+  onClose?: () => void
 }) => {
   const prefill = bookTitle
     ? `Hi, I'm in your neighborhood and interested in your book: "${bookTitle}". Check out my books in my profile, and send me a message if you'd like to meet up!`
@@ -47,8 +49,7 @@ const MessageForm = ({
         <>
           <div className="instructions">
             Want to exchange books with this swapper?
-            Send this message to let them know,
-            and introduce yourself!
+            Let them know, and introduce yourself!
             We'll start your message out for you...
           </div>
           <div className="prefill-text">
@@ -70,6 +71,7 @@ const MessageForm = ({
         />
       </div>
       <button type="submit">Send</button>
+      <button type="button" onClick={onClose || (() => {})}>Close</button>
     </form>
   )
 }

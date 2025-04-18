@@ -1,17 +1,20 @@
 import { useState } from 'react'
 import MessageForm from './MessageForm'
 
+// MessageModal.tsx
+interface MessageModalProps {
+  senderId: string
+  receiverId: string
+  bookTitle?: string
+  onClose: () => void
+}
+
 const MessageModal = ({
   senderId,
   receiverId,
   onClose,
   bookTitle
-}: {
-  senderId: string
-  receiverId: string
-  onClose: () => void
-  bookTitle?: string
-}) => {
+}: MessageModalProps) => {
   const [messageSent, setMessageSent] = useState(false)
 
   return (
@@ -23,7 +26,7 @@ const MessageModal = ({
             receiverId={receiverId}
             bookTitle={bookTitle}
             onSuccess={() => setMessageSent(true)}
-            onClose={onClose}
+            onClose={onClose}  // Pass onClose correctly
           />
         ) : (
           <p>Message sent successfully!</p>

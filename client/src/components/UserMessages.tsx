@@ -49,11 +49,11 @@ const UserMessages = ({ user }: { user: { _id: string } }) => {
             .map(msg => (
               <div key={msg._id} className="sent">
                 <p>
-  <strong>Sent To:</strong>{' '}
-  <Link to={`/swapper/${msg.receiverId}?myId=${user._id}`}>
-    {users[msg.receiverId]}
-  </Link>
-</p>
+                  <strong>Sent To:</strong>{' '}
+                  <Link to={`/swapper/${msg.receiverId}?myId=${user._id}`}>
+                    {users[msg.receiverId]}
+                  </Link>
+                </p>
                 <p>{msg.message}</p>
                 <p className="timestamp"><strong>Sent at:</strong> {msg.createdAt ? new Date(msg.createdAt).toLocaleString() : ""}</p>
               </div>
@@ -68,11 +68,11 @@ const UserMessages = ({ user }: { user: { _id: string } }) => {
             .map(msg => (
               <div key={msg._id} className="received">
                 <p>
-  <strong>Received From:</strong>{' '}
-  <Link to={`/swapper/${msg.senderId}?myId=${user._id}`}>
-    {users[msg.senderId]}
-  </Link>
-</p>
+                  <strong>Received From:</strong>{' '}
+                  <Link to={`/swapper/${msg.senderId}?myId=${user._id}`}>
+                    {users[msg.senderId]}
+                  </Link>
+                </p>
                 <p>{msg.message}</p>
                 <p className="timestamp"><strong>Sent at:</strong> {msg.createdAt ? new Date(msg.createdAt).toLocaleString() : ""}</p>
                 <MessageForm 
