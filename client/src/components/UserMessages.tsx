@@ -1,32 +1,38 @@
 import { useEffect, useState } from "react"
 import Message from "../interfaces/Message"
-import axios from "axios"
 import MessageForm from "./MessageForm"
+import { fetchMessagesByUser } from "../services/messageService"
+import { fetchUsernameById } from "../services/postUserService"
+import { Link } from "react-router-dom"
 
 const UserMessages = ({ user }: { user: { _id: string } }) => {
   const [messages, setMessages] = useState<Message[]>([])
   const [users, setUsers] = useState<Record<string, string>>({})
 
   useEffect(() => {
-    const fetchMessages = async () => {
-      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/messages?user=${user._id}`)
-      setMessages(res.data)
+    const fetchData = async () => {
+      try {
+        const res = await fetchMessagesByUser(user._id)
+        
+        setMessages(res.reverse())
 
-      const userIds = res.data.flatMap((msg: Message) => [msg.senderId, msg.receiverId])
-      const uniqueUserIds = [...new Set(userIds)]
+        const userIds = res.flatMap(msg => [msg.senderId, msg.receiverId])
+        const uniqueUserIds = [...new Set(userIds)]
 
-      const usersRes = await Promise.all(
-        uniqueUserIds.map(async (userId) => {
-          const userRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/user/${userId}`)
-          return { [userId]: userRes.data.username }
-        })
-      )
+        const usersData = await Promise.all(
+          uniqueUserIds.map(async (id) => {
+            const username = await fetchUsernameById(id)
+            return { [id]: username }
+          })
+        )
 
-      const usersObj = Object.assign({}, ...usersRes)
-      setUsers(usersObj)
+        setUsers(Object.assign({}, ...usersData))
+      } catch (err) {
+        console.error("Error fetching messages or users:", err)
+      }
     }
-    
-    fetchMessages()
+
+    fetchData()
   }, [user])
 
   const handleNewMessage = (newMessage: Message) => {
@@ -35,26 +41,49 @@ const UserMessages = ({ user }: { user: { _id: string } }) => {
 
   return (
     <div className="message-box-wrapper">
-    <div className="message-box">
-{messages.map(msg => (
-  <div key={msg._id} className={msg.senderId === user._id ? 'sent' : 'received'}>
-    <p><strong>{msg.senderId === user._id ? "Sent To" : "Recieved From"}:</strong> {msg.senderId === user._id ? users[msg.receiverId] : users[msg.senderId]}</p>
-    <p>{msg.message}</p>
-    <p className="timestamp"><strong>Sent at:</strong> {msg.createdAt ? new Date(msg.createdAt).toLocaleString() : ""}</p>
-    
-    {msg.senderId !== user._id && (
-      <>
-        <p><strong>Reply below...</strong></p>
-        <MessageForm 
-          senderId={user._id} 
-          receiverId={msg.senderId} 
-          onNewMessage={handleNewMessage}
-        />
-      </>
-    )}
-  </div>
-))}
-    </div>
+      <div className="sent-box">
+        <h3>Sent Messages</h3>
+        <div className="message-box">
+          {messages
+            .filter(msg => msg.senderId === user._id)
+            .map(msg => (
+              <div key={msg._id} className="sent">
+                <p>
+  <strong>Sent To:</strong>{' '}
+  <Link to={`/swapper/${msg.receiverId}?myId=${user._id}`}>
+    {users[msg.receiverId]}
+  </Link>
+</p>
+                <p>{msg.message}</p>
+                <p className="timestamp"><strong>Sent at:</strong> {msg.createdAt ? new Date(msg.createdAt).toLocaleString() : ""}</p>
+              </div>
+            ))}
+        </div>
+      </div>
+      <div className="received-box">
+        <h3>Received Messages</h3>
+        <div className="message-box">
+          {messages
+            .filter(msg => msg.receiverId === user._id)
+            .map(msg => (
+              <div key={msg._id} className="received">
+                <p>
+  <strong>Received From:</strong>{' '}
+  <Link to={`/swapper/${msg.senderId}?myId=${user._id}`}>
+    {users[msg.senderId]}
+  </Link>
+</p>
+                <p>{msg.message}</p>
+                <p className="timestamp"><strong>Sent at:</strong> {msg.createdAt ? new Date(msg.createdAt).toLocaleString() : ""}</p>
+                <MessageForm 
+                  senderId={user._id} 
+                  receiverId={msg.senderId} 
+                  onNewMessage={handleNewMessage}
+                />
+              </div>
+            ))}
+        </div>
+      </div>
     </div>
   )
 }
