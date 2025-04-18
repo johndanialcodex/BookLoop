@@ -15,13 +15,12 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null)
 
   useEffect(() => {
-    // Fetch user data from Vite API (assuming you have an endpoint for this)
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/user`) // This is the Vite API endpoint
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/user`)
         if (response.ok) {
           const userData = await response.json()
-          setUser(userData) // Set user data from the response
+          setUser(userData)
         } else {
           console.error("Failed to fetch user data")
         }

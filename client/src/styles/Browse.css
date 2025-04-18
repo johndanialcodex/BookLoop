@@ -2,7 +2,7 @@ body {
   color: #2E2E2E;
   font-family: 'Arial', sans-serif;
   background-color: #fffdf9;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .instructions {
@@ -14,8 +14,8 @@ body {
   margin: 1em;
   max-height: 400px;
   overflow-y: auto;
-  width: 75%;
-  border-radius: 1em;
+  width: 90%;
+  border-radius: 0.2em;
 }
 
 .swapper-card::-webkit-scrollbar {
@@ -25,6 +25,12 @@ body {
 .swapper-card::-webkit-scrollbar-thumb {
   background-color: #137C8B;
   border-radius: 4px;
+}
+
+.swapper-link {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2px;
+  border-radius: 0.2em;
 }
 
 .listing-card {
