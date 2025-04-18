@@ -1,30 +1,22 @@
-import { useNavigate, useParams } from "react-router-dom"
-import { deleteBookListing } from "../services/listingService"
-import { useEffect } from "react"
+import React from 'react'
 
-const DeleteBookListing = () => {
-  const { id, bookId } = useParams()
-  const navigate = useNavigate()
+interface DeleteBookListingProps {
+  onConfirm: () => void
+  onCancel: () => void
+}
 
-  useEffect(() => {
-    const confirmAndDelete = async () => {
-      const confirmDelete = window.confirm("Are you sure you want to delete this book listing?")
-      if (confirmDelete && bookId) {
-        try {
-          await deleteBookListing(bookId)
-          navigate(`/profile/${id}`)
-        } catch (err) {
-          console.error("Error deleting book listing:", err)
-        }
-      } else {
-        navigate(`/profile/${id}`)
-      }
-    }
-
-    confirmAndDelete()
-  }, [bookId, id, navigate])
-
-  return null
+const DeleteBookListing: React.FC<DeleteBookListingProps> = ({ onConfirm, onCancel }) => {
+  return (
+    <div className="delete-modal-overlay">
+      <div className="delete-modal">
+        <p>Are you sure you want to delete this listing?</p>
+        <div className="delete-modal-buttons">
+          <button onClick={onConfirm} className="confirm-delete">Yes, delete</button>
+          <button onClick={onCancel} className="cancel-delete">Cancel</button>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default DeleteBookListing

@@ -11,7 +11,6 @@ import logo from "../assets/Logo2.svg"
 const HeaderLoggedIn = () => {
     const { id } = useParams()
     const [user, setUser] = useState<User | null>(null)
-    //const [user, setUser] = useState(null)
   
     useEffect(() => {
       const fetchUser = async () => {
@@ -32,7 +31,7 @@ const HeaderLoggedIn = () => {
         <header className="header">
           <img src={logo} alt="BookLoop Logo" className="headerLoggedIn__logo" />
           <nav className="header__nav">
-            <p><Link to="/" className="header__link">Home</Link></p>
+            <p><Link to={`/${id}`} className="header__link">Home</Link></p>
             <p><Link to={`/profile/${id}`} className="header__link">Profile</Link></p>
             <p><Link to={`/create-listing/${id}`} className="header__link">List A Book</Link></p>
             <p><Link to={`/browse/city/${user.city}/user/${user._id}`} className="header__link">Browse For Books</Link></p>

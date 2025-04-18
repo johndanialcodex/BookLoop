@@ -3,12 +3,9 @@ import "../styles/HeaderLoggedIn.css"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { User } from "../interfaces/User"
-import { useParams } from 'react-router-dom'
-
 import logo from "../assets/Logo2.svg"
 
 const SwapperHeader = () => {
-  const { id } = useParams()
   const queryParams = new URLSearchParams(window.location.search)
   const myId = queryParams.get("myId")
 

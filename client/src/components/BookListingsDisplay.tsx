@@ -90,11 +90,11 @@ const BookListingsDisplay = () => {
 
       {isModalOpen && selectedReceiverId && (
         <MessageModal
-          senderId={id}
-          receiverId={selectedReceiverId}
-          bookTitle={selectedBookTitle ?? ''}
-          onClose={closeModal}
-        />
+        senderId={id ?? ''}
+        receiverId={selectedReceiverId}
+        bookTitle={selectedBookTitle ?? ''}
+        onClose={closeModal}
+      />
       )}
     </div>
   )

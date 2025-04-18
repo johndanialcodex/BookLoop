@@ -20,7 +20,7 @@ const GooglePlacesAutocomplete = ({ onPlaceSelected }: { onPlaceSelected: (place
   useEffect(() => {
     if (loaded && window.google) {
       const autocomplete = new window.google.maps.places.Autocomplete(inputRef.current!, {
-        types: ["(cities)"], // Filter for city names
+        types: ["(cities)"],
       })
 
       autocomplete.addListener("place_changed", () => {

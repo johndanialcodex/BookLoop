@@ -2,56 +2,67 @@ import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import BookListing from './BookListings'
 import Booklisting from '../interfaces/Booklisting'
+import DeleteBookListing from './DeleteBookListing'
 import { fetchListingsByUser, deleteListingById } from '../services/listingService'
 
 const UserListings = () => {
   const { id } = useParams()
   const [bookListings, setBookListings] = useState<Booklisting[]>([])
+  const [showDeletePopup, setShowDeletePopup] = useState(false)
+  const [listingToDelete, setListingToDelete] = useState<string | null>(null)
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        if (id) {
-          const listings = await fetchListingsByUser(id)
-          console.log("Fetched listings:", listings)
-          setBookListings(Array.isArray(listings) ? listings : [])
-        }
-      } catch (error) {
-        console.error("Error fetching book listings:", error)
+      if (id) {
+        const listings = await fetchListingsByUser(id)
+        setBookListings(Array.isArray(listings) ? listings : [])
       }
     }
 
     fetchData()
   }, [id])
 
-  const handleDelete = async (listingId: string) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this listing?")
-    if (confirmDelete) {
-      try {
-        await deleteListingById(listingId)
-        setBookListings(prev => prev.filter(listing => listing.id !== listingId))
-      } catch (error) {
-        console.error("Error deleting listing:", error)
-      }
+  const handleDeleteClick = (listingId: string) => {
+    setListingToDelete(listingId)
+    setShowDeletePopup(true)
+  }
+
+  const confirmDelete = async () => {
+    if (listingToDelete) {
+      await deleteListingById(listingToDelete)
+      setBookListings(prev => prev.filter(listing => listing._id !== listingToDelete))
+      setListingToDelete(null)
+      setShowDeletePopup(false)
     }
+  }
+
+  const cancelDelete = () => {
+    setListingToDelete(null)
+    setShowDeletePopup(false)
   }
 
   return (
     <>
+      {showDeletePopup && (
+        <DeleteBookListing
+          onConfirm={confirmDelete}
+          onCancel={cancelDelete}
+        />
+      )}
       <div className="my-book-wrapper">
         <div className="my-books">
           <div className="my-books-list">
             <ul>
               {bookListings.length > 0 ? (
                 bookListings.map((listing) => (
-                  <li key={listing.id}>
+                  <li key={listing._id}>
                     <div className="book-item">
                       <BookListing listing={listing} />
                       <div className="book-actions">
-                        <button onClick={() => handleDelete(listing.id!)} className="delete-button">
-                          Delete
-                        </button>
-                        <Link to={`/edit-listing/${id}/${listing.id}`}>
+                      <button onClick={() => listing._id && handleDeleteClick(listing._id)} className="delete-button">
+  Delete
+</button>
+                        <Link to={`/edit-listing/${id}/${listing._id}`}>
                           <button className="edit-button">Edit</button>
                         </Link>
                       </div>
