@@ -1,17 +1,42 @@
 .user-info {
-    margin: 1em;
-    padding: 0;
-}
-
-.my-profile {
+    margin: 0.5em;
+    padding: 2px;
+    width: 90%;
+    color: #4e4949;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .my-profile {
     text-align: left;
-    margin-left: 1em;
     margin-top: 0;
-    font-size: 2em;
-}
-
-ul {
+    font-size: 1.2em;
+  }
+  
+  ul {
     text-align: left;
     margin: 0;
-    font-size: 1.5em;
-}
+    font-size: 1em;
+  }
+  
+/* Desktop styles */
+@media (min-width: 768px) {
+    .user-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1.2em;
+      margin-left: 5em;
+      border-bottom: 3px solid transparent;
+      background-image: linear-gradient(to right, #FFE8D6, #D1A3A4);
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: 100% 3px;
+    }
+  
+    .my-profile {
+      font-size: 1.5em;
+    }
+  }

@@ -56,7 +56,7 @@ const CreateListingForm = () => {
       </div>
       <div>
         <label>Description: </label>
-        <textarea name="description" value={form.description} onChange={handleChange} />
+        <textarea name="description" value={form.description} onChange={handleChange} placeholder="Write a brief description of the quality of your book, and any other important information..." />
       </div>
       <button type="submit">Submit Your Book</button>
     </form>

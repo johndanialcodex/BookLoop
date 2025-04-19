@@ -4,8 +4,9 @@ import bookLogo from "../assets/Book1.svg"
 
 const HomeLoggedIn = () => {
   return (
+    <>
+    <HeaderLoggedIn />
     <div className="home">
-        <HeaderLoggedIn />
         <div className="intro-logged-in">
                 <h3>Welcome to Book Loop!</h3>
                 <div className="intro">
@@ -22,6 +23,7 @@ const HomeLoggedIn = () => {
         </div>
 
     </div>
+    </>
   )
 }
 
