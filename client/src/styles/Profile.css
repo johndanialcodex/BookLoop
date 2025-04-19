@@ -1,9 +1,10 @@
 body {
-  color: #2E2E2E;
+  color: #4e4949;
   font-family: 'Arial', sans-serif;
   background-color: #fffdf9;
   width: 100%;
   margin: 0 auto;
+  font-size: 1em;
 }
 
 .header-logged-in-container {
@@ -12,6 +13,8 @@ body {
 
 .my-books-label {
   text-align: center;
+  color: #4e4949;
+  font-size: 1.2em;
 }
 
 .my-book-wrapper {
@@ -22,10 +25,9 @@ body {
 
 .my-books {
   background-color: #FFE8D6;
-  width: 100%;
+  width: 80%;
   max-height: 400px;
   overflow-y: auto;
-  width: 80%;
   border-radius: 0.3rem;
   border: 2px solid #D1A3A4;
 }
@@ -65,6 +67,8 @@ ul {
 
 .my-messages-label {
   text-align: center;
+  color: #4e4949;
+  font-size: 1.2em;
 }
 
 link {
@@ -82,40 +86,41 @@ link {
 .sent-box,
 .received-box {
   width: 100%;
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-.sent-box::-webkit-scrollbar,
-.received-box::-webkit-scrollbar {
-  width: 8px;
-}
-
-.sent-box::-webkit-scrollbar-thumb,
-.received-box::-webkit-scrollbar-thumb {
-  background-color: #D1A3A4;
-  border-radius: 4px;
 }
 
 .message-box {
   border: 2px solid #D1A3A4;
   padding: 1rem;
+  color: #4e4949;
   border-radius: 0.2rem;
   background-color: #fffdf9;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.message-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.message-box::-webkit-scrollbar-thumb {
+  background-color: #D1A3A4;
+  border-radius: 4px;
 }
 
 .sent-box h3,
 .received-box h3 {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  color: #4e4949;
 }
 
 .sent,
 .received {
   margin-bottom: 1rem;
   padding: 0.5rem;
+  font-size: 1rem;
 }
 
 .sent {
@@ -125,14 +130,14 @@ link {
 }
 
 .received {
-  background-color: #A7C4A0;
+  background-color: #c4e2bd;
   border-left: 3px solid #137C8B;
   text-align: left;
 }
 
 .timestamp {
   font-size: 0.9rem;
-  color: #666;
+  color: #686060;
 }
 
 .start-swap,
@@ -148,22 +153,56 @@ link {
   display: block;
 }
 
-/* DESKTOP LAYOUT*/
 @media (min-width: 768px) {
+  .dashboard-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 1rem 2em;
+  }
+
+  .my-books-section {
+    flex: 1;
+    margin-bottom: 0;
+    margin-top: 1.2em;
+  }
+
+  .message-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sent,
+.received {
+  margin: 1em;
+}
+
+  .user-info {
+    border-bottom: 3px solid;
+    border-image: linear-gradient(to right, #FFE8D6, #D1A3A4);
+    border-image-slice: 1;
+    margin-left: 5em;
+  }
+
   .message-box-wrapper {
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 10px;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 0;
   }
 
   .sent-box,
   .received-box {
-    width: 47%;
-    margin-bottom: 10px;
+    width: 100%;
+    margin: 0;
   }
 
-  .start-swap,
-  .browse-link {
-    width: 60%;
+  .message-section h2.my-messages-label {
+    margin-top: 1em;
+    margin-bottom: 0;
   }
+
+
 }

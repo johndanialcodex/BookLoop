@@ -13,7 +13,6 @@ const UserMessages = ({ user }: { user: { _id: string } }) => {
     const fetchData = async () => {
       try {
         const res = await fetchMessagesByUser(user._id)
-        
         setMessages(res.reverse())
 
         const userIds = res.flatMap(msg => [msg.senderId, msg.receiverId])

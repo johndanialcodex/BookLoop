@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import MessageForm from './MessageForm'
+import "../styles/MessageModal.css"
 
 // MessageModal.tsx
 interface MessageModalProps {

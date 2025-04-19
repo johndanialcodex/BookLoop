@@ -11,7 +11,6 @@ import HeaderLoggedIn from "../components/HeaderLoggedIn"
 const Profile = () => {
   const { id } = useParams()
   const [user, setUser] = useState<User | null>(null)
-  //const [user, setUser] = useState(null)
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -30,16 +29,25 @@ const Profile = () => {
 
   return (
     <div className="profile">
-        <div className="header-logged-in-container">
+      <div className="header-logged-in-container">
         <HeaderLoggedIn />
+      </div>
+      <UserInfo name={user.username} city={user.city} />
+      <div className="dashboard-container">
+        <div className="my-books-section">
+          <h2 className="my-books-label">My Books:</h2>
+          <UserListings />
+          <h3 className="browse-link">
+            <Link to={`/browse/city/${user.city}/user/${user._id}`}>
+              Browse for books in {user.city}
+            </Link>
+          </h3>
         </div>
-        <UserInfo name={user.username} city={user.city} />
-        <h2 className="my-books-label">My Books:</h2>
-        <UserListings />
-        <h3 className="browse-link"><Link to={`/browse/city/${user.city}/user/${user._id}`}>Browse for books in {user.city}</Link></h3>
-        <div><h2 className="my-messages-label">My Messages:</h2>
-        <UserMessages user={user} />
-          </div>
+        <div className="message-section">
+          <h2 className="my-messages-label">My Messages:</h2>
+          <UserMessages user={user} />
+        </div>
+      </div>
     </div>
   )
 }
