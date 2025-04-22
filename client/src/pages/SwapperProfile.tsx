@@ -57,7 +57,7 @@ const SwapperProfile = () => {
           <ul>
             {bookListings.length > 0 ? (
               bookListings.map((listing) => (
-                <li key={listing.id}>
+                <li key={listing._id}>
                   <div className="book-item">
                     <BookListing listing={listing} />
                   </div>

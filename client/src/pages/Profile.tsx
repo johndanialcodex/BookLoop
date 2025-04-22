@@ -35,7 +35,7 @@ const Profile = () => {
       <UserInfo name={user.username} city={user.city} />
       <div className="dashboard-container">
         <div className="my-books-section">
-          <h2 className="my-books-label">My Books:</h2>
+          <h2 className="my-books-label">My Books</h2>
           <UserListings />
           <h3 className="browse-link">
             <Link to={`/browse/city/${user.city}/user/${user._id}`}>
@@ -44,7 +44,7 @@ const Profile = () => {
           </h3>
         </div>
         <div className="message-section">
-          <h2 className="my-messages-label">My Messages:</h2>
+          <h2 className="my-messages-label">My Inbox</h2>
           <UserMessages user={user} />
         </div>
       </div>

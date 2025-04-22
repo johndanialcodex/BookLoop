@@ -1,5 +1,5 @@
 import "../styles/HomeFeature.css"
-import bookLogo from "../assets/Book1.svg"
+import bookLogo from "../assets/Book1.png"
 
 const HomeFeature = () => {
     return (

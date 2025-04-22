@@ -1,45 +1,40 @@
-import { useState } from "react"
-import axios from "axios"
-import Message from "../interfaces/Message"
+import { useState } from 'react'
+import Message from '../interfaces/Message'
+import { sendMessage } from '../services/messageService'
 
-import "../styles/MessageForm.css"
+import '../styles/MessageForm.css'
 
 const MessageForm = ({
   senderId,
   receiverId,
   bookTitle,
   onNewMessage,
-  onSuccess,
-  onClose
+  onSuccess
 }: {
-  senderId: string,
-  receiverId: string,
-  bookTitle?: string,
-  onNewMessage?: (msg: Message) => void,
-  onSuccess?: () => void,
+  senderId: string
+  receiverId: string
+  bookTitle?: string
+  onNewMessage?: (msg: Message) => void
+  onSuccess?: () => void
   onClose?: () => void
 }) => {
   const prefill = bookTitle
     ? `Hi, I'm in your neighborhood and interested in your book: "${bookTitle}". Check out my books in my profile, and send me a message if you'd like to meet up!`
-    : ""
+    : ''
 
-  const [userMessage, setUserMessage] = useState("")
+  const [userMessage, setUserMessage] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const fullMessage = bookTitle ? `${prefill} ${userMessage}` : userMessage
 
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/messages`, {
-        senderId,
-        receiverId,
-        message: fullMessage
-      })
-      setUserMessage("")
-      onNewMessage?.(res.data)
+      const newMessage = await sendMessage(senderId, receiverId, fullMessage)
+      setUserMessage('')
+      onNewMessage?.(newMessage)
       onSuccess?.()
     } catch (err) {
-      console.error("Failed to send message", err)
+      console.error('Failed to send message', err)
     }
   }
 
@@ -66,12 +61,11 @@ const MessageForm = ({
         <textarea
           value={userMessage}
           onChange={(e) => setUserMessage(e.target.value)}
-          placeholder={bookTitle ? "Add more information here..." : "Write your reply..."}
+          placeholder={bookTitle ? 'Add more information here...' : 'Write your reply...'}
           required
         />
       </div>
       <button type="submit">Send</button>
-      <button type="button" onClick={onClose || (() => {})}>Close</button>
     </form>
   )
 }

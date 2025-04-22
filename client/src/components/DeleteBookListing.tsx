@@ -9,9 +9,9 @@ const DeleteBookListing: React.FC<DeleteBookListingProps> = ({ onConfirm, onCanc
   return (
     <div className="delete-modal-overlay">
       <div className="delete-modal">
-        <p>Are you sure you want to delete this listing?</p>
+        <p>Are you sure you want to delete this book?</p>
         <div className="delete-modal-buttons">
-          <button onClick={onConfirm} className="confirm-delete">Yes, delete</button>
+          <button onClick={onConfirm} className="confirm-delete">Yes, Delete</button>
           <button onClick={onCancel} className="cancel-delete">Cancel</button>
         </div>
       </div>

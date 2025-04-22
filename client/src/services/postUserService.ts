@@ -21,3 +21,8 @@ export const postUser = async (username: string, city: string) => {
 	const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/user/${userId}`)
 	return res.data.username
   }
+
+  export const fetchUserById = async (userId: string): Promise<User> => {
+	const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/user/${userId}`)
+	return res.data
+  }

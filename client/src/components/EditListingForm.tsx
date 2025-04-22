@@ -51,7 +51,7 @@ const EditListingForm = () => {
 
   return (
     <>
-      <h2>Edit Your Listing</h2>
+      <h2>Edit Your Book's Info</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Title</label>
@@ -69,7 +69,7 @@ const EditListingForm = () => {
           <label>Description</label>
           <textarea name="description" value={form.description} onChange={handleChange} />
         </div>
-        <button type="submit">Update Listing</button>
+        <button type="submit">Update Book</button>
       </form>
       <div>
         <Link to={`/profile/${id}`}>Back to Profile</Link>
