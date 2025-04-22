@@ -24,12 +24,12 @@ body {
 }
 
 .my-books {
-  background-color: #FFE8D6;
+  background-color: #f8e9e9;
   width: 80%;
   max-height: 400px;
   overflow-y: auto;
   border-radius: 0.3rem;
-  border: 2px solid #D1A3A4;
+  border: 5px solid #D1A3A4;
 }
 
 .my-books::-webkit-scrollbar {
@@ -89,7 +89,7 @@ link {
 }
 
 .message-box {
-  border: 2px solid #D1A3A4;
+  border: 5px solid #D1A3A4;
   padding: 1rem;
   color: #4e4949;
   border-radius: 0.2rem;
@@ -153,6 +153,55 @@ link {
   display: block;
 }
 
+.delete-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.delete-modal {
+  background-color: #fffdf9;
+  border: 4px solid #D1A3A4;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.delete-modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+}
+
+.confirm-delete,
+.cancel-delete {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.confirm-delete {
+  background-color: #F96167;
+  color: white;
+}
+
+.cancel-delete {
+  background-color: #D1A3A4;
+  color: white;
+}
+
 @media (min-width: 768px) {
   .dashboard-container {
     display: flex;
@@ -165,7 +214,7 @@ link {
   .my-books-section {
     flex: 1;
     margin-bottom: 0;
-    margin-top: 1.2em;
+    margin-top: 1.5em;
   }
 
   .message-section {
@@ -176,7 +225,7 @@ link {
 
   .sent,
 .received {
-  margin: 1em;
+  margin: 0.8em;
 }
 
   .user-info {

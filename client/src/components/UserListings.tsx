@@ -60,8 +60,8 @@ const UserListings = () => {
                       <BookListing listing={listing} />
                       <div className="book-actions">
                       <button onClick={() => listing._id && handleDeleteClick(listing._id)} className="delete-button">
-  Delete
-</button>
+                    Delete
+                      </button>
                         <Link to={`/edit-listing/${id}/${listing._id}`}>
                           <button className="edit-button">Edit</button>
                         </Link>

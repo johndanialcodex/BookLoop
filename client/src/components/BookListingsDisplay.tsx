@@ -57,8 +57,8 @@ const BookListingsDisplay = () => {
 
   return (
     <div>
-      <h2>Swappers Available in {city}</h2>
-      <div>
+      <h2 className="available-swappers">Swappers Available in {city}</h2>
+      <div className="return-link">
         <Link to={`/profile/${id}`}>Back to Profile</Link>
       </div>
 

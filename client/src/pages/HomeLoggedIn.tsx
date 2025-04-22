@@ -1,6 +1,6 @@
 import HeaderLoggedIn from "../components/HeaderLoggedIn"
 import "../styles/HomeLoggedIn.css"
-import bookLogo from "../assets/Book1.svg"
+import bookLogo from "../assets/Book1.png"
 
 const HomeLoggedIn = () => {
   return (

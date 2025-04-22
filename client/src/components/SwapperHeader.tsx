@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import "../styles/HeaderLoggedIn.css"
 import { useEffect, useState } from "react"
-import axios from "axios"
 import { User } from "../interfaces/User"
-import logo from "../assets/Logo2.svg"
+import { fetchUserById } from "../services/postUserService"
+import logo from "../assets/Logo2.png"
 
 const SwapperHeader = () => {
   const queryParams = new URLSearchParams(window.location.search)
@@ -12,16 +12,18 @@ const SwapperHeader = () => {
   const [user, setUser] = useState<User | null>(null)
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const getUser = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/user/${myId}`)
-        setUser(res.data)
+        if (myId) {
+          const fetchedUser = await fetchUserById(myId)
+          setUser(fetchedUser)
+        }
       } catch (err) {
-        console.error("Error fetching user:", err)
+        console.error("Error fetching user", err)
       }
     }
 
-    if (myId) fetchUser()
+    getUser()
   }, [myId])
 
   if (!user) return <p>Loading user...</p>
@@ -30,7 +32,6 @@ const SwapperHeader = () => {
     <header className="header">
       <img src={logo} alt="BookLoop Logo" className="headerLoggedIn__logo" />
       <nav className="header__nav">
-        <p><Link to="/" className="header__link">Home</Link></p>
         <p><Link to={`/profile/${myId}`} className="header__link">Profile</Link></p>
         <p><Link to={`/create-listing/${myId}`} className="header__link">List A Book</Link></p>
         <p><Link to={`/browse/city/${user.city}/user/${user._id}`} className="header__link">Browse For Books</Link></p>
