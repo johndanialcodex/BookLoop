@@ -18,7 +18,7 @@ const HomeMain = () => {
     <h3>Get Started</h3>
     <div className="home__main-links">
         <div className="create-profile-link">
-            <Link to="/create-profile">Create a Profile</Link>
+            <Link to="/create-profile">Create an Account</Link>
             </div>
     </div>
 </div>

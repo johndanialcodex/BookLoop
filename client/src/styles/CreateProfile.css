@@ -1,46 +1,97 @@
 .create-profile {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 2rem;
-    border-radius: 12px;
-    background-color: #fdfdfd;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .create-profile a {
-    align-self: flex-start;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-  }
-  
-  .create-profile a:hover {
-    background-color: #eee;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #fffdf9;
+  border: 4px solid #D1A3A4;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-sizing: border-box;
+}
+
+.create-profile h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #4e4949;
+}
+
+.create-profile form {
+  display: flex;
+  flex-direction: column;
+  background-color: #f3e9e9;
+  gap: 1.25rem;
+  padding: 1em;
+}
+
+.create-profile label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: #4e4949;
+}
+
+.create-profile input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #D1A3A4;
+  border-radius: 0.75rem;
+  background-color: #fffdf9;
+  box-sizing: border-box;
+}
+
+.create-profile input::placeholder {
+  color: #c4a7a7;
+}
+
+.create-profile button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: #F96167;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-profile button:hover {
+  background-color: #e4565c;
+}
+
+.create-profile a {
+  align-self: flex-start;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  border: 2px solid #D1A3A4;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  background-color: #fffdf9;
+  color: #D17878;
+  transition: all 0.3s ease;
+}
+
+.create-profile a:hover {
+  background-color: #f4e8e9;
+}
+
+@media (max-width: 480px) {
+  .create-profile {
+    padding: 1.25rem;
   }
 
-  form {
-    padding: 1rem;
+  .create-profile h2 {
+    font-size: 1.5rem;
   }
 
-  input {
-    padding: 5px;
-    margin: 5px;
+  .create-profile button,
+  .create-profile input {
+    font-size: 0.95rem;
   }
-
-  button {
-    margin: 5px;
-  }
-  
-  /* Media queries */
-  @media (min-width: 768px) {
-    .create-profile {
-      padding: 3rem;
-    }
-  }
+}

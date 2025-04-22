@@ -12,6 +12,7 @@
     width: 90px;
     height: auto;
     margin-top: 0.2rem;
+    animation: slow-spin 10s linear infinite;
 }
 
 .home__text {
@@ -20,15 +21,20 @@
     color: #557F4E;
 }
 
-/* Media queries */
-
-/* Tablet (768px and up) */
 @media (min-width: 768px) {
     .home__feature {
         padding: 2rem;
     }
 }
 
-/* Desktop (1024px and up) */
 @media (min-width: 1024px) {
+}
+
+@keyframes slow-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

@@ -3,7 +3,6 @@ import GooglePlacesAutocomplete from "./GooglePlacesAutocomplete"
 import { useNavigate } from "react-router-dom"
 import { postUser } from "../services/postUserService"
 
-
 const CreateProfileForm = () => {
   const [city, setCity] = useState<string>("")
   const [name, setName] = useState<string>("")
@@ -15,37 +14,31 @@ const CreateProfileForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted")
 
     if (!name || !city) {
-      alert("Please fill out all fields.")
+      alert("Please fill out all fields")
       return
     }
 
     try {
       const response = await postUser(name, city)
-      console.log("API response:", response)
       if (response.status === 201) {
         const userId = response.data._id
-        console.log("Created user ID:", userId)
-        console.log("Post response data:", response.data)
         navigate(`/profile/${userId}`)
-        console.log("Navigating to profile page...")
       } else {
-        alert("Something went wrong. Please try again.")
+        alert("Something went wrong. Please try again")
       }
     } catch (err) {
-      console.error("Error creating profile:", err)
-      alert("Error creating profile. Please try again.")
+      alert("Error creating profile. Please try again")
     }
   }
 
   return (
     <div>
-      <h2>Create Profile Form</h2>
+      <h2>Create An Account</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name">Username:</label>
           <input
             type="text"
             name="name"
@@ -59,7 +52,29 @@ const CreateProfileForm = () => {
           <GooglePlacesAutocomplete onPlaceSelected={handlePlaceSelected} />
         </div>
         <div>
-          <button type="submit">Create Profile</button>
+          <label htmlFor="fake-email">Email:</label>
+          <input
+            type="email"
+            name="fake-email"
+            id="fake-email"
+            placeholder="you@example.com"
+            autoComplete="off"
+            onChange={() => {}}
+          />
+        </div>
+        <div>
+          <label htmlFor="fake-password">Password:</label>
+          <input
+            type="password"
+            name="fake-password"
+            id="fake-password"
+            placeholder="••••••••"
+            autoComplete="off"
+            onChange={() => {}}
+          />
+        </div>
+        <div>
+          <button type="submit">Create Account</button>
         </div>
       </form>
 
