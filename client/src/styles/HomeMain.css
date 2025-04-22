@@ -10,14 +10,14 @@
     border-radius: 12px;
     margin-bottom: 0;
   }
-  
+
   .intro-box h3 {
     margin-top: 0;
     color: #f9f9f9;
-    font-size: 1.5rem;
+    font-size: 1.3em;
     text-align: center;
   }
-  
+
   .intro {
     display: flex;
     flex-direction: column;

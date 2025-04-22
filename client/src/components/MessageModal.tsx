@@ -30,7 +30,7 @@ const MessageModal = ({
         ) : (
           <p>Message sent successfully!</p>
         )}
-        <button onClick={onClose}>Close</button>
+        <button onClick={onClose} className="close-button">Close</button>
       </div>
     </div>
   )

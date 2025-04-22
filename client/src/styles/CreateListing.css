@@ -12,9 +12,57 @@ body {
     justify-content: center;
 }
 
+.listing-form-content {
+    width: 100%;
+  max-width: 600px;
+  background-color: #fffdf9;
+  border: 4px solid #D1A3A4;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.listing-label {
+    font-weight: 600;
+  color: #D17878;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.listing-input,
+.listing-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #D1A3A4;
+  border-radius: 0.75rem;
+  background-color: #fffdf9;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.listing-submit {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.75rem;
+    background-color: #F96167;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .listing-submit:hover {
+    background-color: #e4565c;
+  }
+
 form {
     margin: 10px;
-    background-color:  #A7C4A0;
+    padding: 5px;
+    background-color:  #e8f5e2;
     width: 50%;
     text-align: left;
 }
